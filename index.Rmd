@@ -7,9 +7,11 @@ output:
     theme: cerulean
 ---
 
-# P. Alexander Burnham's Website
+# P. Alexander Burnham
 
 ## Computational Biology 
+
+### Homework Assignments:
 
 * [Assignment 1](Assignment1_Bio381.html) 
 * Assignment 2   
