@@ -1,11 +1,10 @@
-#Coinfection of Pathogens in Bombus spp.
+#Computational Biology Lab Notebook
 
 ### Author: P. Alexander Burnham 
-###Affiliation     
+###University of Vermont
+## Spring Semester Notebook for Computational Biology 
 
-## Projects title/descriptions
-
-## Date started:
+## Date started: (2017-01-18)
 ## Date end:
 
 
