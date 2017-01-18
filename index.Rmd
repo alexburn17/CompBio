@@ -8,3 +8,11 @@ output:
 ---
 
 # P. Alexander Burnham's Website
+
+## Computational Biology 
+
+* [Assignment 1](Assignment1_Bio381.html) 
+* Assignment 2   
+* Assignment 3  
+* Assignment 4  
+* Assignment 5  
