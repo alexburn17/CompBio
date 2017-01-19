@@ -18,3 +18,8 @@ output:
 * Assignment 3  
 * Assignment 4  
 * Assignment 5  
+
+### Homework Assignments:
+
+[LECTURE NOTES](Bio381LectureNotes.R) 
+
