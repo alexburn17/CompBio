@@ -1,0 +1,30 @@
+
+Class 1
+4 GOALS:
+
+1) Thinking on paper
+
+2) computational tools
+
+3) Core Programming methods 
+
+4) Speaking Skills (scientific presentation sills)
+
+Homework each week
+
+(1:00 to 3:30 lab) 
+
+MikTeck (need to update) 
+
+What is GitHub:
+
+Version control (software is called git) -> tracks files on a local computer 
+Github -> public repository for git files
+
+Send email when I have the github set up
+
+1) link to github site
+2) github repository 
+3) Fun fact (1 sentence statement) 
+
+
