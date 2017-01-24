@@ -1,0 +1,57 @@
+---
+title: "Computational Biology Notes"
+author: "P. Alexander Burnham"
+date: "January 24, 2017"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+# Notes for Computational Biology with Nick Gotelli
+
+```{r}
+# Set my working directory:
+setwd("/Users/phillipburnham/ComputationalBiology/CompBio")
+
+# Clear memory of characters:
+ls()
+rm(list=ls())
+```
+
+## January 24, 2017
+
+###Learning about R markdown comands:
+
+This text has *italics*.
+
+This text is **bold**.
+
+### Headers:
+
+
+### Third Header
+
+## Second Header
+
+# First Header
+
+These     words     are widely      Spaced
+
+Add spaces to end of words to make list (3)
+
+Object 1   
+Object 2   
+Object 3   
+
+##Lists
+
+- First
+- Second
+    + Indented Item
+    + Idented Item
+
+**Linked to a website**
+
+[My Website](https://alexburn17.github.io/CompBio/)
+
+
