@@ -54,4 +54,43 @@ Object 3
 
 [My Website](https://alexburn17.github.io/CompBio/)
 
+**Block Quotes:**
+
+A friend once said:
+
+> It's always better to give 
+> than to receive.
+
+
+**Fencing** Shows PLain Text:
+
+```
+Now I can     add random     spaces
+```
+
+![I'm Pooping](ImPooping.png)
+
+
+**Tables:**
+
+First Header  | Second Header
+------------- | -------------
+Content Cell  | Content Cell
+Content Cell  | Content Cell
+
+
+**Inline R Code**
+There were `r nrow(cars)` cars studied
+
+```{r}
+# Comments:
+
+Time <- seq(1,10) # seq makes integer sequence!
+print(Time) # PRINT IT!
+
+Resp <- runif(10) # get 10 random numbers
+print(Resp) # print it
+
+plot(x=Time, y=Resp, type="b") # plot them
+```
 
