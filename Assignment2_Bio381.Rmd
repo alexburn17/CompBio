@@ -1,0 +1,25 @@
+---
+title: "Assignment 2 Bio 381"
+author: "P. Alexander Burnham"
+date: "January 25, 2017"
+output: html_document
+---
+
+# Thinking on Paper
+### Looking at competition and co-infection between pathogens in *Bombus sp*.
+
+## 1) Logic Tree
+
+![](Pictures/LT.png)
+
+## 2) Path Analysis
+
+![](Pictures/PA.png)
+
+## 3) Look-Up Table
+
+![](Pictures/LUT.png)
+
+## 4) Mock Data
+
+![](Pictures/MD.png)
