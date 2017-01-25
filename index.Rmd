@@ -10,7 +10,7 @@ output:
 
 ### Homework Assignments:
 
-* [Assignment 2](Assignment2_Bio381.html) 
+* [Assignment 2 (Thinking on Paper)](Assignment2_Bio381.html) 
 * Assignment 3   
 * Assignment 4  
 * Assignment 5  
