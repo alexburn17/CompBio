@@ -8,6 +8,8 @@ output:
     theme: cerulean
 ---
 
+![](Pictures/Profile.png) 
+
 ### Homework Assignments:
 
 * [Assignment 2 (Thinking on Paper)](Assignment2_Bio381.html) 
