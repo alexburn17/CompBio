@@ -96,12 +96,56 @@ print(Resp) # print it
 plot(x=Time, y=Resp, type="b") # plot them
 ```
 
-## LaTex Equations
+### LaTex Equations
 
 $a = b + c$
 
 Here it is centered:
 
 $$a = b + c$$
+
+## January 26, 2017
+
+### More on Latex Equations:
+
+**Subscripts:**
+
+$$x_t + t_{first}$$
+
+**Superscripts:**
+
+$$x^t + t^{first}$$
+
+**Special Symbols:**
+
+$$\alpha = \frac{\beta}{\gamma+\delta_x}$$
+
+**Using the backslash:**
+
+$$\backslash \alpha \le b \backslash$$
+
+**Summation sign:**
+
+$$z = \sum_{i=1}^X{K}$$
+
+**Rendering plaintext in LaTeX:**
+
+$$P(\mbox{Occurance of species A}) = Z$$
+
+## R code chunk:
+
+```{r, echo=FALSE}
+plot(runif(20))
+print(seq(1,5))
+```
+
+
+
+
+
+
+
+
+
 
 
