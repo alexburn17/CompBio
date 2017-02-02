@@ -1,0 +1,94 @@
+---
+output: 
+  beamer_presentation: 
+    colortheme: beaver
+    fonttheme: structurebold
+    incremental: yes
+    theme: boxes
+---
+
+## Introduction:
+
+**Bee local: A comparison of productivity and pathogen load in local vs. Claifornia re-queened colonies**
+
+\bigskip
+\bigskip
+\bigskip
+
+
+Andre Burnham, Fiona McLaughlin, P. Alexander Burnham & Herman Lehman
+
+ \begin{picture}(200,200)
+ \put(1,70){\includegraphics[height=3cm]
+ {/Users/phillipburnham/ComputationalBiology/CompBio/Presentation/Pictures/Picture6.png}}
+ \put(-50,100){\begin{minipage}[t]{1\linewidth}
+ {}
+ \end{minipage}}
+ \end{picture}
+
+
+ \begin{picture}(200,200)
+ \put(155, 288){\includegraphics[height=2.2cm]
+ {/Users/phillipburnham/ComputationalBiology/CompBio/Presentation/Pictures/Picture7.png}}
+ \put(00,100){\begin{minipage}[t]{1\linewidth}
+ {}
+ \end{minipage}}
+ \end{picture}
+
+
+
+
+
+
+## The question:
+
+**“Do locally-bred queens produce healthier, more productive colonies that are better adapted to their environment than imported queens?”**
+
+
+## Another slide with non spontanious bullet points
+
+```{r, echo=FALSE}
+
+
+# Set Working Directory: 
+setwd("~/AndreCollaborations/QueenExperimentBurnham")
+
+# Read in Data:
+QueenDF <- read.table("2016QueensHam.csv", header=TRUE, sep = ",", stringsAsFactors = FALSE) 
+
+
+
+# These dataframes are seperate becuase they do not follow that sampling 
+# pattern that the other four varaibles in the previous data frame do (i.e.5
+# time steps):
+PollenDF <- read.table("PollenQueens.csv", header=TRUE, sep = ",") 
+VirusDF <- read.table("RNAVirus.csv", header=TRUE, sep = ",") 
+
+# load plyr for data manipulation and ggplot plotting package and other 
+# related packages:
+library(plyr)
+library(ggplot2)
+library(grid)
+library(scales)
+
+
+# summary stats for plotting purposes:
+MassSummary <- ddply(QueenDF, c("Origin", "MassDay"), summarise, 
+                     n = length(Mass),
+                     mean = mean(Mass, na.rm = TRUE),
+                     sd = sd(Mass, na.rm = TRUE),
+                     se = sd / sqrt(n))
+
+# remove time steps with missing data:
+MassSummary <- MassSummary[-c(5,10),]
+
+#Create plot in ggplot for brood 
+plot <- ggplot(data = MassSummary, 
+                aes(x = MassDay, 
+                    y = mean, 
+                    group = Origin)
+) + geom_point(size=3) + scale_colour_manual(values = c("black", "black")) + labs(x = "Time (days after requeening)", y = "Colony Mass (lbs)") + coord_cartesian(ylim = c(20,70), xlim = c(5,70)) + geom_errorbar(aes(ymin = mean - se, ymax = mean + se, width = 0.9)) + geom_line(aes(linetype=Origin), size=1) + scale_fill_brewer(palette = "Paired") + theme_classic(base_size = 17) + theme(legend.position=c(0.1, 0.85), panel.border = element_blank(), axis.line.x = element_line(colour = 'black', size=0.5, linetype='solid'), axis.line.y = element_line(colour = 'black', size=0.5, linetype='solid'), panel.grid.major = element_blank(), panel.grid.minor = element_blank(), axis.title.y=element_text(margin=margin(0,20,0,0))) + scale_x_continuous(breaks=pretty_breaks(n=10)) 
+
+plot
+```
+
