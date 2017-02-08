@@ -125,8 +125,8 @@ $(document).ready(function () {
 
 <div id="computational-biology-381" class="section level2">
 <h2>Computational Biology 381</h2>
-<div id="homework-4-metadata" class="section level3">
-<h3>Homework 4: Metadata</h3>
+<div id="homework-4-part-a-metadata" class="section level3">
+<h3>Homework 4 part A: Metadata</h3>
 <pre class="r"><code>#Preliminaries:
 # Clear memory of characters
 ls()</code></pre>
@@ -247,6 +247,47 @@ Data &lt;- read.table(&quot;RawData/hbdata.csv&quot;,header=TRUE,sep=&quot;,&quo
 ##                                                          
 ##                                                          
 ## </code></pre>
+</div>
+<div id="homework-4-part-b-regular-expressions" class="section level3">
+<h3>Homework 4 part B: Regular Expressions:</h3>
+<pre><code>Solutions to the problems:
+
+1)
+
+Find: \s{2,}
+
+Replace: , 
+
+2)
+
+Find: (\w+),\s(\w+),\s(.*)
+
+Replace: \2 \1 (\3)
+
+3a)
+
+Find: [.mp3]{4}\s+
+
+Replace: .mp3\n
+
+3b)
+
+Find: (\d+)\s(.*)([.mp3]{4})
+
+Replace: \2_\1\3
+
+4a)
+
+Find:([A-Z])(\w*),(\w*),(.*,)(\d+)
+
+Replace: \1_\3,\5
+
+4b)
+
+Find:([A-Z])(\w*),([\w]{4})(.*,)(.*,)(\d+)
+
+Replace: \1_\3,\6
+</code></pre>
 </div>
 </div>
 

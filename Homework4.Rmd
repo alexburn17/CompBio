@@ -6,7 +6,7 @@ output: html_document
 ---
 
 ## Computational Biology 381
-### Homework 4: Metadata 
+### Homework 4 part A: Metadata 
 
 ```{r}
 #Preliminaries:
@@ -30,3 +30,46 @@ tail(Data)
 summary(Data)
 ```
 
+
+### Homework 4 part B: Regular Expressions:
+
+```
+Solutions to the problems:
+
+1)
+
+Find: \s{2,}
+
+Replace: , 
+
+2)
+
+Find: (\w+),\s(\w+),\s(.*)
+
+Replace: \2 \1 (\3)
+
+3a)
+
+Find: [.mp3]{4}\s+
+
+Replace: .mp3\n
+
+3b)
+
+Find: (\d+)\s(.*)([.mp3]{4})
+
+Replace: \2_\1\3
+
+4a)
+
+Find:([A-Z])(\w*),(\w*),(.*,)(\d+)
+
+Replace: \1_\3,\5
+
+4b)
+
+Find:([A-Z])(\w*),([\w]{4})(.*,)(.*,)(\d+)
+
+Replace: \1_\3,\6
+
+```
