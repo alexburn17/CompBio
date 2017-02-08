@@ -14,7 +14,7 @@ output:
 
 * [Assignment 2 (Thinking on Paper)](Assignment2_Bio381.html) 
 * [Assignment 3 (Flow Chart)](BurnhamFlowChart.html)  
-* Assignment 4  
+* [Assignment 4a (MetaData)](Homework4.html)
 * Assignment 5  
 * Assignment 6  
 

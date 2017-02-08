@@ -1,0 +1,32 @@
+---
+title: "Homework 4"
+author: "P. Alexander Burnham"
+date: "February 8, 2017"
+output: html_document
+---
+
+## Computational Biology 381
+### Homework 4: Metadata 
+
+```{r}
+#Preliminaries:
+# Clear memory of characters
+ls()
+rm(list=ls())
+
+# set working dirrectory 
+setwd("~/ComputationalBiology/CompBio")
+
+# read in data
+Data <- read.table("RawData/hbdata.csv",header=TRUE,sep=",",stringsAsFactors=FALSE)
+```
+
+
+```{r}
+str(Data)
+table(Data$Origin)
+head(Data)
+tail(Data)
+summary(Data)
+```
+
