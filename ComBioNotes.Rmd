@@ -139,9 +139,48 @@ plot(runif(20))
 print(seq(1,5))
 ```
 
+## Feb. 27, 2017
 
+###using grep and general expression to manipulate data:
 
+* Literal
+* metacharacters
+* "Escaping the metacharacter"
+```
+    - \.
+    - \\
+```
+* wildcards 
+```
+    - "\w" a songle "word" character (all caps, all lower case, 0-9)
+    - "\d" a single number character (0-9)
+    - "\t" a single tab space
+    - "\s" a single tab, space or line break
+    - "\n" a single line break
+    -  "." single letters, digit, space
+    - () surround everything we want to hang on to
+```
+* negated wildcards
 
+```
+    - "\W" anything thats not \w
+    - "\D"not \d etc.
+    - "\T" and "\S"
+```
+* creating our own custom character sets -> what follows is going to define my character set [A-Za-z]
+* [ACTG] for genomic data
+* Negate character sets [^A-Z] - anything but a capital letter 
+* [^\t]=  anything accept a tab 
+* quantifiers 
+```
+    - \w+ = 1 or more consectuative word characters 
+    - + can we used with nay of the wild cards we have seen
+    - \w* = 0 or more consecutive word characters 
+    - \w{3} = exactly 3 consecuative word characters 
+    - \w{3,5} = 3 4 or 5 that form a word
+    - \w{3,} = 3 or more matches 
+    - .* = get everything
+```
 
 
 
