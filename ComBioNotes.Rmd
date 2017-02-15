@@ -139,7 +139,7 @@ plot(runif(20))
 print(seq(1,5))
 ```
 
-## Feb. 27, 2017
+## Feb. 7, 2017
 
 ###using grep and general expression to manipulate data:
 
@@ -182,9 +182,16 @@ print(seq(1,5))
     - .* = get everything
 ```
 
+## Feb. 9, 2017
 
+### more regex stuff:
 
-
+```
+    - ^ start of line
+    - $ is the end of a line
+    - \b beginning or ending of a word
+    - \B not beginning or ending of a word
+```
 
 
 
