@@ -1,0 +1,393 @@
+---
+title: 'Homework # 6 Comp. Bio.'
+author: "P. Alexander Burnham"
+date: "February 22, 2017"
+output: html_document
+---
+
+### Creating a help page for 13 functions:
+
+```{r, echo=FALSE}
+# Takes a subsetted list of functions from Hadley Advanced R
+# Assigns each randomly to a student in the class
+# 19 February 2017
+# NJG
+
+# Ensure that the same random number sequence is used by everyone.
+set.seed(100) 
+
+# The Hadley R functions:
+firstToLearn <- c("str", "?")
+
+operators <- c("%in%", "match", "=", "<-", "<<-", "$", "[",
+               "[[", "head", "tail", "subset", "with", "assign", "get")
+comparisons <- c("all.equal", "identical", "!=", "==", ">", ">=", "<", "<=",  "is.na", "complete.cases",  "is.finite")
+
+basicMath <- c("*", "+", "-", "/", "^", "%%", "%/%", "abs", "sign", "acos", "asin", "atan", "atan2", "sin", "cos", "tan", "ceiling", "floor", "round", "trunc", "signif", "exp", "log", "log10", "log2", "sqrt", "max", "min", "prod", "sum", "cummax", "cummin", "cumprod", "cumsum", "diff", "pmax", "pmin", "range", "mean", "median", "cor", "sd", "var", "rle")
+
+logicalSets <- c("&", "|", "!", "xor", "all", "any", "intersect", "union", "setdiff", "setequal", "which")
+
+vectorsMatrices <- c("c", "matrix", "length", "dim", "ncol", "nrow", "cbind", "rbind", "names", "colnames", "rownames", "t", "diag", "sweep", "as.matrix", "data.matrix")
+
+makingVectors <- c("c", "rep", "rep_len", "seq", "seq_len", "seq_along", "rev", "sample", "choose", "factorial", "combn", "is.character", "is.numeric", "is.logical", "as.character", "as.numeric", "as.logical")
+
+listsDataFrames <- c("list", "unlist",  "data.frame", "as.data.frame", "split", "expand.grid")
+
+output <- c("print", "cat", "message", "warning", "dput", "format", "sink", "capture.output", "sprintf")
+
+readingWritingData <- c("data", "count.fields", "read.csv", "write.csv", "read.delim", "write.delim", "read.fwf", "readLines", "writeLines", "readRDS", "saveRDS", "load", "save")
+
+# Combine all of the function lists and randomize the order:
+RFunctions <- c(firstToLearn, operators, comparisons, basicMath, logicalSets, vectorsMatrices, makingVectors, listsDataFrames, output, readingWritingData)
+
+RFunctions <- sample(RFunctions)
+
+# Create class list
+classNames <- c("Alger", "Ashlock", "Burnham", "Clark", "Kazenal", "Keller", "Looi", "Makhukov", "Mickuki", "Nevins", "Southgate") 
+
+# Assign functions
+functionAssignments <- rep_len(classNames, length.out=length(RFunctions))
+
+# Bind the two columns into a data frame
+functionsFinal <- data.frame(functionAssignments,RFunctions)
+
+splitDF <- split(functionsFinal, functionsFinal$functionAssignments)
+
+x <- splitDF$Burnham
+
+```
+
+### These are all of my randomly selected functions (13):
+```{r}
+print(x)
+```
+
+## intersect() 
+
+**Description:**
+This function is one of four Set Operators. It takes two arguments (x and y) each of them is an atomic vector. It checks the two vectors for numbers that are the same value and returns those numbers.
+
+**Arguments:**
+
+  * x = your vector 1   
+  * y = your vector 2   
+
+**Example:**
+```{r}
+# create two vectors x and y
+x <- c(3:13)
+y <- c(8:18)
+
+# use the intersect function:
+intersect(x=x, y=y)
+```
+
+**Explaination of Example:**
+In this example the vector x has values 3 through 13 and y has 8 through 18. Values 8 through 13 are returned because they overlap or intersect betwee the vectors x and y.
+
+# log2()
+
+**Description:**
+The log2() function takes a single argument (x) which is a single value or a vector and log transforms it using the base 2 logarithm.
+
+**Arguments:**
+
+  * x = a single value or vector    
+
+**Example:**
+
+```{r}
+# create vector of values 1 through 10:
+x <- c(1:10)
+
+# take the log (base 2) of this vector x:
+log2(x=x)
+```
+
+**Explaination of Example:**
+The output is the log (base 2) transformation of the vector x (1 through 10)
+
+
+
+
+# log()
+
+**Description:**
+The log() function takes two arguemnts: a single value or a vector (x) and "base", which allows you to choose the base of your log. By default, log() transforms the vector using the base e or natural logarithm which is defined in R as exp(1).
+
+**Arguments:**
+
+  * x = a single value or vector
+  * base = the base of the log you want to use (default = exp(1) or natural log)
+
+**Example:**
+```{r}
+# create vector of values 1 through 10:
+x <- c(1:10)
+
+# take the log (base e) of this vector x:
+log(x=x)
+
+# take the log (base 10) of this vector x:
+log(x=x, base=10)
+```
+
+**Explaination of Example:**
+The first output is the log (base e) transformation of the vector x (1 through 10)
+The second output is the log (base 10) transformation of the vector x (1 through 10)
+
+
+# as.matrix()
+
+**Description:**
+This function allows you to convert another data structure into matrix form. 
+**Arguments:**
+
+  * x = dataframe or another R object
+  * dimnames = (character string) and gives names to the dimensions of the matrix
+
+**Example:**
+```{r}
+
+# make a dataframe:
+dataframe <- data.frame(cbind(c("blue", "red", "green"), c(1:3)))
+print(dataframe)
+
+# convert data frame to a matrix:
+matrix <- as.matrix(x=dataframe)
+str(matrix)
+```
+
+**Explaination of Example:**
+The dataframe, which had two variable types (character and numeric), was converted into a dataframe of the same dimensions. Numeric variables were coerced into characters because a matrix must be of all the same variable type and numeric variables get coerced into characters as part of R's hierarchical structure.
+
+
+
+# combn()
+
+**Description:**
+This function determines the combinations that can be generated from an atomic vector taken m number of ways and returns a matrix, array or list of these combinations.
+
+**Arguments:**
+
+  * x = vector source for combinations
+  * m = number of elements to choose
+  * FUN = is a function that can be applied to matrices (by default its the identity matrix)
+  * simplify = TRUE or FALSE (by default TRUE) asking if it should be simplified into a matrix (or another array) or a list if FALSE
+
+**Example:**
+
+```{r}
+# create vector of values 1 through 10:
+x <- c(1:10)
+
+# combine 1 through 10 two ways and return a matrix:
+combn(x=x, m = 2, simplify = TRUE)
+```
+
+**Explaination of Example:**
+This example shows how the values 1 through 10 can be taken 2 ways in combination. There are 45 ways to combine 2 different values from this vector together without repeating combinations.
+
+
+# diag()
+
+**Description:**
+Extracts or replaces the diagnals of a matrix. Value will can assign differnt values to the matrix. On its own, it will extract the diagnals which can be useful in multivariate analysis when dealing with correlation or variance/covariance matrices.
+
+**Arguments:**
+
+  * x = a matrix
+  * value = either a single value or a vector of length equal to that of the current diagonal. 
+  * nrow = optional number of rows when x isn't a matrix
+  * ncol = optional number of columns when x isn't a matrix
+
+**Example:**
+
+```{r}
+# make a 3 by 3 matrix of interger values 1 through 9:
+matrix <- matrix(data=c(1:9), nrow=3)
+
+# Returns the diagnal of this matrix
+diag(x=matrix)
+
+# Replaces the diagnal with all 3s and prints matrix:
+diag(x=matrix) <- 3
+print(matrix)
+```
+
+**Explaination of Example:**
+Output one takes the diagnal starting in the top left going down to the bottom right and returns the values. The second output replaces that same diagnal with a string of 3s.
+
+
+## colnames() 
+
+**Description:**
+Retrieve or set the column names of a matrix-like object. The names are in a list and stored in the object using the assignment operator "<-".
+
+**Arguments:**
+
+  * x = a matrix-like object (matrix or dataframe) with at least two dimensions
+  * <- value is a list of names that is stored in the object "x"
+  * do.null = TRUE or FLASE (default is TRUE), if FALSE and names are NULL, names are created.
+
+**Example:**
+```{r}
+# make a dataframe:
+dataframe <- data.frame(cbind(c("blue", "red", "green"), c(1:3)))
+print(dataframe)
+
+# assign names to columns and print:
+colnames(dataframe) <- c("color", "number")
+print(dataframe)
+```
+
+**Explaination of Example:**
+The names "color" and "number" were added to the two columns of the data frame previously known by generic varable names x1 and x2.
+
+## <-
+
+**Description:**
+This operator, the assingment opperator is the most powerful and usefull character in the R language. It is used to store information into objects creating various data structures. It can be thought of as a unidirectional equals sign.
+
+**Arguments:**
+
+  * x = object 
+  * value = your data
+
+**Example:**
+```{r}
+# store 10 random uniform numbers in a vector using <-
+x <- runif(10)
+print(x)
+```
+
+**Explaination of Example:**
+In this example the vector x was created by using the assingment opperator to store 10 randum uniform numbers in x
+
+
+## data.matrix()
+
+**Description:**
+Converts a data frame into a numeric matrix. This means that character and factor variables will be coerced into numeric values (ranked) rather thatn following R's usual hierarchical structure.
+
+**Arguments:**
+
+  * frame = a data frame whose components are logical vectors, factors or numeric vectors.
+  * rownames.force = TRUE or FALSE or NA. Should the matrix have character row names rather than no names.
+
+**Example:**
+```{r}
+# make a dataframe:
+dataframe <- data.frame(cbind(c("blue", "red", "green"), c(1:3)))
+print(dataframe)
+
+# convert to a matrix
+data.matrix(frame=dataframe)
+```
+
+**Explaination of Example:**
+dataframe was converted into a matrix (numeric) with the factor levels for color being used as their numeric values. 
+
+
+## range()
+
+**Description:**
+range returns a vector containing the minimum and maximum of all the given arguments.
+
+
+**Arguments:**
+
+  * first value is any numeric or character object
+  * na.rm = TRUE or FALSE (if TRUE NAs are omitted)
+  
+**Example:**
+```{r}
+# create vector of values 1 through 10:
+x <- c(1:10)
+
+# find the range in vector x
+range(x)
+```
+
+**Explaination of Example:**
+The smallest value "1" and largest "10" are given.
+
+## capture.output()
+
+**Description:**
+Evaluates its arguments with the output being returned as a character string or sent to a file. Related to sink in the same way that with is related to attach.
+
+**Arguments:**
+
+  * first argument is expression to be evaulated
+  * file = filename to store output in (or NULL)
+  * append = TRUE or FALSE (apend or overwrite)
+  
+**Example:**
+```{r}
+# make a data frame:
+dataframe <- data.frame(cbind(rep(c("blue", "red", "green"),3), c(1:9)))
+dataframe$X1 <- as.factor(dataframe$X1)
+dataframe$X2 <- as.numeric(dataframe$X2)
+print(dataframe)
+
+# run an ANOVA model:
+model <- aov(dataframe$X2~dataframe$X1)
+
+# use capture to 
+capture.output(model, file = NULL)
+
+```
+
+**Explaination of Example:**
+The output takes the summary output of the model and displays it and saves it 
+
+## tail()
+
+**Description:**
+Shows the last rows of a data set (by default 6 but can be changed to any value)
+
+**Arguments:**
+
+  * x = data set (data frame)
+  * n = number of rows displayed
+  
+**Example:**
+```{r}
+# make a data frame:
+dataframe <- data.frame(cbind(rep(c("blue", "red", "green"),3), c(1:9)))
+
+# use tail
+tail(x=dataframe, n=3)
+
+```
+
+**Explaination of Example:**
+This shows me the last 3 rows of this data frame
+
+
+## diff()
+
+**Description:**
+Returns suitably lagged and iterated differences between the values in a vector or a matrix. 
+
+**Arguments:**
+
+  * x = a numeric vector or matrix containing the values to be differenced
+  * differences = an integer indicating the order of the difference.
+  * lag = inger of which lag to use
+  
+**Example:**
+```{r}
+# create vector of values 1 through 10:
+x <- c(1:10)
+
+# Differnces between values in that have a differnce of 2
+diff(x=x, differences = 2)
+
+# Differnces between values in that have a differnce of 2
+diff(x=x, differences = 1)
+```
+
+**Explaination of Example:**
+The first output gives all 0 values because this sequece increases by 1 and no values next to eachother have differences of 2.The next output looks for differnces of 1. They are all differnt by 1 so it returns a string of 1s.
