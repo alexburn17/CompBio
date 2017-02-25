@@ -137,6 +137,147 @@ m[ ,2]
 
 m[2]
 
+#################################################################################
+# random samples and probabilty dist:
+setwd("~/ComputationalBiology/CompBio/Scripts/CompBio")
+
+data <- read.table(file="antcountydata.csv", header = TRUE, sep=",", stringsAsFactors = FALSE)
+
+littleData <- data[1:8,3:6]
+
+# randomized order of 1 through 10
+sample(10)
+
+# applied to a vector
+print(littleData$n.species)
+
+# randomized vector values
+sample(littleData$n.species)
+
+# randomized vector values (3 of them) without replacement:
+sample(x=littleData$n.species, size = 3)
+
+# randomized vector values (20 of them) with replacement (for bootstrapping):
+sample(x=littleData$n.species, size = 20, replace = TRUE)
 
 
+#----------------------------------------------------------------------------
+# NULL communities: comparing community structure to what distribution would look like by chance:
+
+# community not sampled equiprobably:
+mainlandSpecies <- paste("Species",1:10, sep="")
+popSizes <- c(1000,500,100,20,10,5,5,5,1,1)
+
+# sample is equiprobable 
+islandA <- sample(x=mainlandSpecies, size=5)
+islandA
+
+# assume colonization isnt equiprobable
+islandB <- sample(x=mainlandSpecies, size=5, prob=popSizes)
+islandB
+
+# assume colonization isnt equiprobable and draw indivuals with replacement 
+islandC <- sample(x=mainlandSpecies, size=100, prob=popSizes, replace=TRUE)
+table(islandC)
+unique(islandC)
+length(unique(islandC))
+
+# island D colonazation of equiprob indivuals
+islandD <- sample(x=mainlandSpecies, size=100, prob=NULL, replace=TRUE)
+table(islandD)
+table(islandD)
+unique(islandD)
+length(unique(islandD))
+
+length(table(islandD)[table(islandD)>9])
+
+###############################################################################
+# probabilty distrutions:
+
+# continuous dist:
+
+#normal norm()
+#uniform unif()
+#gamma gamma()
+#beta (0 to 1) beta()
+
+# discrete dist:
+
+#binomial (coin flip) binom()
+#poisson (chance through time) pois()
+#neg binomial is waiting times or failure times
+
+# syntax for dist functions:
+
+# d - prefix is density (give me the height of the curve for value of x)
+# p - smaller than d is p prefix or probability (lower tail)
+# q - what value of x generates p (inverse of p)
+# r - give us random draw from the distribution 
+
+#---------------------------------------------------------------
+# poisson (rate at whci event is occuring) (average of values = lambda rate or freq that this is occuring) and y axis shows percent event 0 or 1 ....10 occurs.
+
+# lambda sampling once, good for rare events
+
+MyVec <- dpois(x=seq(0:10), lambda = 1)
+names(MyVec) <- seq(0,10)
+barplot(height=MyVec)
+
+# lambda = 2
+
+MyVec <- dpois(x=seq(0:10), lambda = 2)
+names(MyVec) <- seq(0,10)
+barplot(height=MyVec)
+
+# lambda high (lambda increases more normal looking)
+
+MyVec <- dpois(x=seq(0:10), lambda = 5)
+names(MyVec) <- seq(0,10)
+barplot(height=MyVec)
+
+# lambda low really rare event (lambda decreases backs up against wall) (90% of the time we get a 0)
+
+MyVec <- dpois(x=seq(0:10), lambda = 0.1)
+names(MyVec) <- seq(0,10)
+barplot(height=MyVec)
+
+#-------------------------------------------------
+# prob of getting each number (lower tail)
+MyVec <- ppois(q=seq(0:10), lambda = 2)
+names(MyVec) <- seq(0,10)
+barplot(height=MyVec)
+
+
+#-------------------------------------------------
+MyVec <- qpois(p=c(0.025, 0.975), lambda = 50)
+# 90% of values dranw from dist with lambda of 50 will be between these values (37, 64)
+
+#-------------------------------------------------
+# random sample:
+x <- rpois(n=1000, lambda = 1.1)
+hist(x)
+
+################################################
+# binomial
+# p = prob of dichotmous outcome (binary)
+# size = number of trials
+# x = possible outcomes
+# x is number of sucesses
+
+MyVec <- dbinom(x=seq(1,10), size = 10, p=0.5)
+names(MyVec) <- seq(1,10)
+barplot(height = MyVec)
+
+
+# Biased
+
+MyVec <- dbinom(x=seq(1,10), size = 10, p=0.75)
+names(MyVec) <- seq(1,10)
+barplot(height = MyVec)
+
+
+# qbinom() function
+MyVec <- qbinom(p=c(0.025, 0.975), size = 100, prob=0.75)
+barplot(height = MyVec)
+MyVec
 
