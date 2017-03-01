@@ -17,6 +17,7 @@ output:
 * [Assignment 4 (MetaData and Regular Exp.)](Homework4.html)
 * [Assignment 5 (Working on Problems in R)](Burnham_HW_2_15Feb2017.html)
 * [Assignment 6  (Creating a help sheet for 13 functions)](Homework6.html)
+* Assignment 7  (added functions from last week that other people didn't get to)
 
 ### Homework Assignments:
 
