@@ -5,7 +5,7 @@ date: "February 22, 2017"
 output: html_document
 ---
 
-### Creating a help page for 13 functions:
+## Creating a help page for 13 functions:
 
 ```{r, echo=FALSE}
 # Takes a subsetted list of functions from Hadley Advanced R
@@ -57,12 +57,13 @@ x <- splitDF$Burnham
 
 ```
 
-### These are all of my randomly selected functions (13):
+## These are all of my randomly selected functions (13):
 ```{r}
 print(x)
 ```
 
 ## intersect() 
+### Alex Burnham
 
 **Description:**
 This function is one of four Set Operators. It takes two arguments (x and y) each of them is an atomic vector. It checks the two vectors for numbers that are the same value and returns those numbers.
@@ -85,7 +86,8 @@ intersect(x=x, y=y)
 **Explaination of Example:**
 In this example the vector x has values 3 through 13 and y has 8 through 18. Values 8 through 13 are returned because they overlap or intersect betwee the vectors x and y.
 
-# log2()
+## log2()
+### Alex Burnham
 
 **Description:**
 The log2() function takes a single argument (x) which is a single value or a vector and log transforms it using the base 2 logarithm.
@@ -110,7 +112,8 @@ The output is the log (base 2) transformation of the vector x (1 through 10)
 
 
 
-# log()
+## log()
+### Alex Burnham
 
 **Description:**
 The log() function takes two arguemnts: a single value or a vector (x) and "base", which allows you to choose the base of your log. By default, log() transforms the vector using the base e or natural logarithm which is defined in R as exp(1).
@@ -137,7 +140,8 @@ The first output is the log (base e) transformation of the vector x (1 through 1
 The second output is the log (base 10) transformation of the vector x (1 through 10)
 
 
-# as.matrix()
+## as.matrix()
+### Alex Burnham
 
 **Description:**
 This function allows you to convert another data structure into matrix form. 
@@ -163,7 +167,8 @@ The dataframe, which had two variable types (character and numeric), was convert
 
 
 
-# combn()
+## combn()
+### Alex Burnham
 
 **Description:**
 This function determines the combinations that can be generated from an atomic vector taken m number of ways and returns a matrix, array or list of these combinations.
@@ -189,7 +194,8 @@ combn(x=x, m = 2, simplify = TRUE)
 This example shows how the values 1 through 10 can be taken 2 ways in combination. There are 45 ways to combine 2 different values from this vector together without repeating combinations.
 
 
-# diag()
+## diag()
+### Alex Burnham
 
 **Description:**
 Extracts or replaces the diagnals of a matrix. Value will can assign differnt values to the matrix. On its own, it will extract the diagnals which can be useful in multivariate analysis when dealing with correlation or variance/covariance matrices.
@@ -219,7 +225,8 @@ print(matrix)
 Output one takes the diagnal starting in the top left going down to the bottom right and returns the values. The second output replaces that same diagnal with a string of 3s.
 
 
-## colnames() 
+## colnames()
+### Alex Burnham
 
 **Description:**
 Retrieve or set the column names of a matrix-like object. The names are in a list and stored in the object using the assignment operator "<-".
@@ -245,6 +252,7 @@ print(dataframe)
 The names "color" and "number" were added to the two columns of the data frame previously known by generic varable names x1 and x2.
 
 ## <-
+### Alex Burnham
 
 **Description:**
 This operator, the assingment opperator is the most powerful and usefull character in the R language. It is used to store information into objects creating various data structures. It can be thought of as a unidirectional equals sign.
@@ -266,6 +274,7 @@ In this example the vector x was created by using the assingment opperator to st
 
 
 ## data.matrix()
+### Alex Burnham
 
 **Description:**
 Converts a data frame into a numeric matrix. This means that character and factor variables will be coerced into numeric values (ranked) rather thatn following R's usual hierarchical structure.
@@ -290,6 +299,7 @@ dataframe was converted into a matrix (numeric) with the factor levels for color
 
 
 ## range()
+### Alex Burnham
 
 **Description:**
 range returns a vector containing the minimum and maximum of all the given arguments.
@@ -313,6 +323,7 @@ range(x)
 The smallest value "1" and largest "10" are given.
 
 ## capture.output()
+### Alex Burnham
 
 **Description:**
 Evaluates its arguments with the output being returned as a character string or sent to a file. Related to sink in the same way that with is related to attach.
@@ -343,6 +354,7 @@ capture.output(model, file = NULL)
 The output takes the summary output of the model and displays it and saves it 
 
 ## tail()
+### Alex Burnham
 
 **Description:**
 Shows the last rows of a data set (by default 6 but can be changed to any value)
@@ -367,6 +379,7 @@ This shows me the last 3 rows of this data frame
 
 
 ## diff()
+### Alex Burnham
 
 **Description:**
 Returns suitably lagged and iterated differences between the values in a vector or a matrix. 
@@ -391,3 +404,142 @@ diff(x=x, differences = 1)
 
 **Explaination of Example:**
 The first output gives all 0 values because this sequece increases by 1 and no values next to eachother have differences of 2.The next output looks for differnces of 1. They are all differnt by 1 so it returns a string of 1s.
+
+## &
+### Alex Burnham
+
+
+**Description:**
+This character is a logical operator and acts on logical and numeric (numeric-like) vectors. single "&" indicates each value within the vector is evaluated and in && only the first value is evaluated. 
+
+**Arguments:**
+
+  * x = vector that is to be operated on
+  * y = object with operations within
+  
+**Example:**
+```{r}
+# create vector of values 1 through 10:
+x <- c(1:10)
+# create vector of values 11 through 20:
+y <- x>5
+
+# single and symbol
+y & x
+
+# double and symbol
+y && x
+
+```
+
+**Explaination of Example:**
+In this case, the opparator puts out a string of logicals indcating where the values of x are greater than 5 and the second example does this only to the first value in the vector. 
+
+
+## count.fields()
+### Alex Burnham
+
+**Description:**
+This functon counts how many fields are in a data on each line of file being loaded in by counting what is between the seperator in the file.
+
+**Arguments:**
+
+  * file = file name
+  * sep = the type of seperation in the file (comma "," if .csv)
+  * skip = how many lines to skip before reading in data
+
+**Example:**
+```{r}
+# create dataframe and write out as a .csv file:
+dataframe <- data.frame(cbind(rep(c("blue", "red", "green"),3), c(1:9)))
+dataframe <- write.csv(dataframe, "dataframe.csv")
+
+# count fields in .csv file:
+count.fields(file="dataframe.csv", sep=",", skip=1)
+
+```
+
+**Explaination of Example:**
+This says that there are 3 values on each of the 9 line of this .csv file we read in.
+
+
+## ceiling()
+### Alex Burnham
+
+**Description:**
+This function takes a vector (x) and returns a vector that rounds all values up to their nearest integer value. For instance 3.4 becomes 4 not 3.
+
+**Arguments:**
+
+  * x = a vector
+  
+**Example:**
+```{r}
+# create vector of values:
+x <- c(0.4, 2.3, 9.4, 3.4, 4.2)
+
+ceiling(x)
+```
+
+**Explaination of Example:**
+All values got rounded up to their nearest integer values.
+
+
+
+## any()
+### Alex Burnham
+
+**Description:**
+Given a set of logical vectors, is at least one of the values true?
+
+**Arguments:**
+
+  * 1 or more logical vectors 
+  * na.rm = if TRUE, na values are removed
+  
+**Example:**
+```{r}
+# two vectors of 10 values:
+set.seed(100)
+x <- rnorm(10)
+y <- rnorm(10)
+# logical statements (y greater than x - TRUE or FALSE) or the opposite
+z <- y > x
+t <- y < x
+
+# one logical vector 
+any(z)
+# evaluating 2 logical vectors 
+any(z,t)
+```
+
+**Explaination of Example:**
+Returns a TRUE because at least on of the values is in fact TRUE. Second example also returns TRUE because both vectors have at least one TRUE value contained within.
+
+## sweep()
+### Alex Burnham
+
+**Description:**
+
+**Arguments:**
+
+  * x = an array (matrix or higher dimension)
+  * FUN = finary opporator "-" subtraction symbol is default
+  * MARGIN 1 = rows and 2 = columns
+  * STATS = vecotor as long as either the row or column as sepcified by MARGIN
+  * check.margin = logical, if TRUE checks if margin equals dimensions of matrix x
+  
+**Example:**
+```{r}
+# make a dataframe:
+dataframe <- data.frame(cbind(c(2,4,6), c(1:3)))
+print(dataframe)
+
+# convert to a matrix
+matrix <- data.matrix(frame=dataframe)
+
+sweep(x=matrix, MARGIN = 2, STATS = c(2,3), check.margin=TRUE, FUN="-") 
+```
+
+**Explaination of Example:**
+Returns a matrix where 2 and 3 are subtracted from each row
