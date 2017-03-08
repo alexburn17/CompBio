@@ -173,8 +173,9 @@ myANOVA(x=MyDF$Factor1, y=MyDF$Pop2)
 # Function for a contingency anlaysis (takes disc. y and disc. x variables)
 ###########################################################################
 
-myCONT <- function(x=as.factor(c(rep("cat", 10), rep("dog", 10))), y=as.factor(c(rep("0", 10), rep("1", 10)))){
-  chiModel <- chisq.test(y=y, x=x)
+myCONT <- function(x=as.factor(c(rep("cat", 3), rep("dog", 17))), y=as.factor(c(rep("0", 10), rep("1", 10)))){
+  dataMatrix <- rbind(x,y)
+  chiModel <- chisq.test(dataMatrix)
   
   z <- list(chiModel, summary(chiModel))
 return(z)
@@ -284,6 +285,64 @@ myANOVAplot()
 
 # Test Function with fake Data Set:
 myANOVAplot(x=MyDF$Factor1, y=MyDF$Pop2)
+```
+
+## CONTINGENCY PLOT:
+```{r}
+###########################################################################
+#### Function for a contingency plot (takes disc. y and disc. x variables)
+###########################################################################
+
+myCONTplot <- function(x=as.factor(c(rep("cat", 10), rep("dog", 10))), y=as.factor(c(rep("0", 10), rep("1", 10)))){
+  dataMatrix <- rbind(x,y)
+ p <- mosaicplot(x=dataMatrix,
+           shade=FALSE)
+
+return(p)
+}
+
+###########################################################################
+# END OF FUNCITON
+###########################################################################
+
+```
+
+### Test Contingency Plot:
+```{r}
+# run function on default values
+myCONTplot()
+
+# Test Function with fake Data Set:
+myCONTplot(x=MyDF$Factor1, y=MyDF$Factor2)
+```
+
+## LOG REG PLOT:
+```{r}
+###########################################################################
+### Function for a logistic reg. plot (takes disc. y and cont. x variables)
+###########################################################################
+
+LogRegplot <- function(x=runif(20), y=as.factor(c(rep("0", 10), rep("1", 10)))){
+  
+  logRegMod <- glm(y~x,family=binomial(link="logit"))
+  plot(x=x, y=y,pch=21,bg="tan",cex=2.5)
+curve(predict(logRegMod,data.frame(x),type="response"),add=TRUE,lwd=2)
+return()
+}
+
+###########################################################################
+# END OF FUNCITON
+###########################################################################
+
+```
+
+### Test Log Reg. Plot:
+```{r}
+# run function on default values
+LogRegplot()
+
+# Test Function with fake Data Set:
+LogRegplot(x=MyDF$Pop1, y=MyDF$Factor1)
 ```
 
 
