@@ -142,7 +142,7 @@ Regression(x=MyDF$Pop1, y=MyDF$Pop2)
 ## ANOVA:
 ```{r}
 ###########################################################################
-# Function for a simple linear regression (takes cont. y and x variables)
+######### Function for a simple ANOVA (takes cont. y and disc. x variables)
 ###########################################################################
 
 myANOVA <- function(x=as.factor(c(rep("cat", 5), rep("dog", 5))), y=runif(10)){
@@ -166,6 +166,35 @@ myANOVA()
 # Test Function with fake Data Set:
 myANOVA(x=MyDF$Factor1, y=MyDF$Pop2)
 ```
+
+## CONTINGENCY:
+```{r}
+###########################################################################
+# Function for a contingency anlaysis (takes disc. y and disc. x variables)
+###########################################################################
+
+myANOVA <- function(x=as.factor(c(rep("cat", 5), rep("dog", 5))), y=runif(10)){
+  AnModel <- aov(y~x)
+  
+  z <- list(AnModel, summary(AnModel))
+return(z)
+}
+
+###########################################################################
+# END OF FUNCITON
+###########################################################################
+
+```
+
+### Test Contingency:
+```{r}
+# run function on default values
+myANOVA()
+
+# Test Function with fake Data Set:
+myANOVA(x=MyDF$Factor1, y=MyDF$Pop2)
+```
+
 
 
 **2)** 
@@ -205,7 +234,7 @@ RegressionPlot(x=MyDF$Pop1, y=MyDF$Pop2)
 ## ANOVA PLOT:
 ```{r}
 ###########################################################################
-# Function for a simple linear regression (takes cont. y and x variables)
+# Function that plots box plots from ANOVA (takes cont. y and x variables)
 ###########################################################################
 
 myANOVAplot <- function(x=as.factor(c(rep("cat", 5), rep("dog", 5))), y=runif(10)){
@@ -229,4 +258,7 @@ myANOVAplot()
 # Test Function with fake Data Set:
 myANOVAplot(x=MyDF$Factor1, y=MyDF$Pop2)
 ```
+
+
+
 
