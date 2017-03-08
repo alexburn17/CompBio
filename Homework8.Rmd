@@ -173,10 +173,10 @@ myANOVA(x=MyDF$Factor1, y=MyDF$Pop2)
 # Function for a contingency anlaysis (takes disc. y and disc. x variables)
 ###########################################################################
 
-myANOVA <- function(x=as.factor(c(rep("cat", 5), rep("dog", 5))), y=runif(10)){
-  AnModel <- aov(y~x)
+myCONT <- function(x=as.factor(c(rep("cat", 10), rep("dog", 10))), y=as.factor(c(rep("0", 10), rep("1", 10)))){
+  chiModel <- chisq.test(y=y, x=x)
   
-  z <- list(AnModel, summary(AnModel))
+  z <- list(chiModel, summary(chiModel))
 return(z)
 }
 
@@ -189,12 +189,39 @@ return(z)
 ### Test Contingency:
 ```{r}
 # run function on default values
-myANOVA()
+myCONT()
 
 # Test Function with fake Data Set:
-myANOVA(x=MyDF$Factor1, y=MyDF$Pop2)
+myCONT(x=MyDF$Factor1, y=MyDF$Factor2)
 ```
 
+## LOG REG:
+```{r}
+###########################################################################
+# Function for a logistic regression (takes disc. y and cont. x variables)
+###########################################################################
+
+LogReg <- function(x=runif(20), y=as.factor(c(rep("0", 10), rep("1", 10)))){
+  logRegMod <- glm(y~x,family=binomial(link="logit"))
+  
+  z <- list(logRegMod, summary(logRegMod))
+return(z)
+}
+
+###########################################################################
+# END OF FUNCITON
+###########################################################################
+
+```
+
+### Test Log Reg.:
+```{r}
+# run function on default values
+LogReg()
+
+# Test Function with fake Data Set:
+LogReg(x=MyDF$Pop1, y=MyDF$Factor2)
+```
 
 
 **2)** 
