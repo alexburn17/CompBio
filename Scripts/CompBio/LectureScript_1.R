@@ -419,3 +419,127 @@ z$estimate[1]/z$estimate[2]
 # variance if it came from a gamma
 z$estimate[1]/z$estimate[2]^2
 
+
+#################################################################################
+###########################      USING FUNCTIONS      ###########################
+#################################################################################
+
+# everything in R is a funciton
+sum(3,2) # This is a prefix function
+
+3 + 2 # thes are operators but are also functions
+
+# infix function
+`+`(3,2)
+
+# assignment statement is a function (infix)
+y <- 3
+
+# this is eqivalent 
+`<-`(yy,3)
+
+# to see the contents of a function:
+print(read.table)
+
+print(sum) # primiative function that is coded in C
+
+##################################################################################
+# Function: HardyWeinberg
+# input: p, allelic frequency (0,1)
+# output: p and three genotype frequencies AA, AB and BB
+#---------------------------------------------------------------------------------
+
+HardyWeinberg <- function(p=runif(1)){
+  q <- 1 - p
+  fAA <- p^2
+  fAB <- 2 * p * q
+  fBB <- q^2
+  
+  vecOut <- signif(c(p=p, AA=fAA, AB=fAB, BB=fBB), digits=3)
+  
+  return(vecOut)
+}
+
+##################################################################################
+# Function: HardyWeinberg2
+# input: p, allelic frequency (0,1)
+# output: p and three genotype frequencies AA, AB and BB
+#---------------------------------------------------------------------------------
+# using multiple returns to generate different outcomes:
+
+HardyWeinberg2 <- function(p=runif(1)){
+  if(p>1 | p < 0.0) {
+    return("Function Failure: p must be >= 0 and <= 1 you IDIOT!")
+  }
+  q <- 1 - p
+  fAA <- p^2
+  fAB <- 2 * p * q
+  fBB <- q^2
+  
+  vecOut <- signif(c(p=p, AA=fAA, AB=fAB, BB=fBB), digits=3)
+  return(vecOut)
+}
+
+
+##################################################################################
+# Function: HardyWeinberg3
+# input: p, allelic frequency (0,1)
+# output: p and three genotype frequencies AA, AB and BB
+#---------------------------------------------------------------------------------
+# Stopping program with a fatal error message 
+
+HardyWeinberg3 <- function(p=runif(1)){
+  if(p>1 | p < 0.0) {
+    stop("Function Failure!!! p must be between 0 and 1: YOU ARE AN IDIOT!")
+  }
+  q <- 1 - p
+  fAA <- p^2
+  fAB <- 2 * p * q
+  fBB <- q^2
+  
+  vecOut <- signif(c(p=p, AA=fAA, AB=fAB, BB=fBB), digits=3)
+  return(vecOut)
+}
+
+##################################################################################
+
+myFunc <- function(a=3, b=4){
+  z <- a + b
+  return(z)
+}
+
+##################################################################################
+b <- 3
+myFuncBad <- function(a=3) {
+  z <- a + b
+  return(z)
+}
+
+
+##################################################################################
+# simple linear regression funcion:
+##################################################################################
+# FUNCTION: fitLinear
+# fits a siimple OLS regression
+# inputs: numeric vector of predictor (x) and response (y)
+# outputs: slope and p-value
+
+fitLinear <- function(x=runif(10), y=runif(10)){
+  myMod <- lm(y~x)
+  myOut <-c(slope=summary(myMod)$coefficients[2,1], 
+            pVal=summary(myMod)$coefficients[2,4])
+  plot(x=x, y=y)
+  return(myOut)
+}
+
+##################################################################################
+
+
+
+
+
+
+
+
+
+

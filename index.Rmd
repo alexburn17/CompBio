@@ -18,6 +18,7 @@ output:
 * [Assignment 5 (Working on Problems in R)](Burnham_HW_2_15Feb2017.html)
 * [Assignment 6  (Creating a help sheet for 13 functions)](Homework6.html)
 * Assignment 7  (added functions from last week that other people didn't get to)
+* [Assignment 8  (Created Functions for Stat. Anlaysis)](Homework8.html)
 
 ### Homework Assignments:
 

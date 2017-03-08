@@ -1,0 +1,232 @@
+---
+title: "Computational Bio. - Homework 8"
+author: "P. Alexander Burnham"
+date: "March 8, 2017"
+output: html_document
+---
+
+
+# Looking at 4 main analyses:
+
+### Regression
+```{r}
+# data
+xVar <- 1:10
+yVar <- runif(10)
+dataFrame <- data.frame(xVar,yVar)
+
+# model
+regModel <- lm(yVar~xVar,data=dataFrame)
+
+# model output
+print(regModel)
+print(summary(regModel))
+
+# plot
+plot(y=dataFrame$yVar,x=dataFrame$xVar,pch=21,bg="lightblue",cex=2)
+abline(regModel)
+```
+
+### ANOVA
+```{r}
+# data
+xVar <- as.factor(rep(c("Control","Heated","Cooled"),each=5))
+yVar <- c(rgamma(10,shape=5,scale=5),rgamma(5,shape=5,scale=10))
+dataFrame <- data.frame(xVar,yVar)
+
+# model
+anovaModel <- aov(yVar~xVar,data=dataFrame)
+
+# model output
+print(anovaModel)
+summary(anovaModel)
+
+# plot
+boxplot(yVar~xVar,data=dataFrame,col=c("grey","thistle","orchid"))
+```
+
+### CONTINGENCY TABLE ANALYSIS 
+```{r}
+# data
+vec1 <- c(50,66,22)
+vec2 <- c(120,22,30)
+dataMatrix <- rbind(vec1,vec2)
+rownames(dataMatrix) <- c("Cold","Warm")
+colnames(dataMatrix) <-c("Aphaenogaster",
+                         "Camponotus",
+                         "Crematogaster")
+
+
+
+# model + model output
+print(chisq.test(dataMatrix))
+
+# plot
+mosaicplot(x=dataMatrix,
+           col=c("goldenrod","grey","black"),
+           shade=FALSE)
+barplot(height=dataMatrix,
+        beside=TRUE,
+        col=c("cornflowerblue","tomato"))
+```
+
+### LOGISTIC REGRESSION
+```{r}
+# data
+xVar <- rgamma(n=20,shape=5,scale=5)
+yVar <- rbinom(n=20,size=1,p=0.5)
+dataFrame <- data.frame(xVar,yVar)
+
+# model
+logRegMod <- glm(yVar ~ xVar,
+                 data=dataFrame,
+                 family=binomial(link="logit"))
+# model output
+print(logRegMod)
+summary(logRegMod)
+
+# plot
+plot(x=dataFrame$xVar, y=dataFrame$yVar,pch=21,bg="tan",cex=2.5)
+curve(predict(logRegMod,data.frame(xVar=x),type="response"),add=TRUE,lwd=2)
+```
+
+# HOMEWORK:
+
+**1)** 
+Set up a new markdown file for this homework. For each of the 4 models create a function to run the model. You will need to think carefully about the formal parameters for the input, the default values, and the output from your function. The output should just include model results, not any graphics.
+
+* create the function in a single R chunk   
+* immediately after the function run it with its default values   
+* create a tiny fake data set (use some of the random number functions you now know about) and run your code on the fake data.
+
+## FAKE DATA SET
+```{r}
+# Create fake Data Set:
+Pop1 <- runif(20)
+Pop2 <- runif(20)
+Factor1 <- c(rep("A", 10), rep("B", 10))
+Factor2 <- as.factor(c(rep(1, 10), rep(0, 10)))
+MyDF <- data.frame(Pop1, Pop2, Factor1, Factor2)
+```
+
+
+## REGRESSION:
+```{r}
+###########################################################################
+# Function for a simple linear regression (takes cont. y and x variables)
+###########################################################################
+
+Regression <- function(x=1:10, y=runif(10)){
+  regModel <- lm(y~x)
+  
+  z <- list(regModel, summary(regModel))
+return(z)
+}
+
+###########################################################################
+# END OF FUNCITON
+###########################################################################
+
+```
+
+### Test Regression:
+```{r}
+# run function on default values
+Regression()
+
+# Test Function with fake Data Set:
+Regression(x=MyDF$Pop1, y=MyDF$Pop2)
+```
+
+
+## ANOVA:
+```{r}
+###########################################################################
+# Function for a simple linear regression (takes cont. y and x variables)
+###########################################################################
+
+myANOVA <- function(x=as.factor(c(rep("cat", 5), rep("dog", 5))), y=runif(10)){
+  AnModel <- aov(y~x)
+  
+  z <- list(AnModel, summary(AnModel))
+return(z)
+}
+
+###########################################################################
+# END OF FUNCITON
+###########################################################################
+
+```
+
+### Test ANOVA:
+```{r}
+# run function on default values
+myANOVA()
+
+# Test Function with fake Data Set:
+myANOVA(x=MyDF$Factor1, y=MyDF$Pop2)
+```
+
+
+**2)** 
+Now, for each of the 4 statistical models, write a graphics function that will generate a nice plot of the results. The formal parameters for input to your graphics function should be the same as the input for your corresponding stats function. Again, illustrate the graphics function for your default settings and for the tiny fake data set you created in 1.
+
+## REGRESSION PLOT:
+```{r}
+###########################################################################
+# function that plots data from regression (takes cont. y and x variables):
+###########################################################################
+
+RegressionPlot <- function(x=1:10, y=runif(10)){
+  
+  p <- plot(y=y,x=x,pch=21,bg="lightblue",cex=2, main="REGRESSION PLOT")
+  regModel <- lm(y~x)
+  abline(regModel)
+  
+return(p)
+}
+
+###########################################################################
+# END OF FUNCITON
+###########################################################################
+
+```
+
+### Test Regression Plot:
+```{r}
+# run the function with stock values:
+RegressionPlot()
+
+# Test Function with fake Data Set:
+RegressionPlot(x=MyDF$Pop1, y=MyDF$Pop2)
+```
+
+
+## ANOVA PLOT:
+```{r}
+###########################################################################
+# Function for a simple linear regression (takes cont. y and x variables)
+###########################################################################
+
+myANOVAplot <- function(x=as.factor(c(rep("cat", 5), rep("dog", 5))), y=runif(10)){
+  
+  p <- boxplot(y~x, main="ANOVA PLOT")
+  
+return(p)
+}
+
+###########################################################################
+# END OF FUNCITON
+###########################################################################
+
+```
+
+### Test ANOVA Plot:
+```{r}
+# run function on default values
+myANOVAplot()
+
+# Test Function with fake Data Set:
+myANOVAplot(x=MyDF$Factor1, y=MyDF$Pop2)
+```
+
