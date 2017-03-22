@@ -535,6 +535,146 @@ fitLinear <- function(x=runif(10), y=runif(10)){
 ##################################################################################
 
 
+##################################################################################
+# simple linear regression funcion with more complex defaults:
+##################################################################################
+# FUNCTION: fitLinear2
+# fits a siimple OLS regression
+# inputs: numeric vector of predictor (x) and response (y)
+# outputs: slope and p-value
+
+fitLinear2 <- function(x=NULL, y=NULL){
+  if(is.null(x) & is.null(y)){
+    x <- runif(20)
+    y <- 0.5 + 2*x + rnorm(n=length(x), mean=0, sd=runif(length(x)))
+  }
+  
+  myMod <- lm(y~x)
+  myOut <-c(slope=summary(myMod)$coefficients[2,1], 
+            pVal=summary(myMod)$coefficients[2,4])
+  plot(x=x, y=y)
+  return(myOut)
+}
+
+##################################################################################
+
+# passing a list of parameters to a funciton, do.call:
+z <- c(runif(99), NA)
+mean(z, na.rm=TRUE)
+# take data set, remove NAs and strip extreme values in data set
+mean(x=z, na.rm=TRUE, trim=0.05)
+
+# parameter list for mean
+parList <- list(x=z, na.rm=TRUE, trim=0.05)
+
+do.call(mean, parList)
+
+
+##################################################################################
+###########################--Structured Programming--#############################
+##################################################################################
+
+# function template:
+#################################################################################
+# FUNCTION: FunctionName
+# one line description
+# input: x
+# output: x
+#################################################################################
+# FunctionName <- function() {
+  
+#  return("testing......FunctionName")
+# }
+#################################################################################
+
+
+
+
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#               Beginning Functions That make up program body                  #
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
+
+#################################################################################
+# FUNCTION: GetData
+# one line description
+# input: x
+# output: x
+#################################################################################
+GetData <- function() {
+
+  return("testing......GetData")
+}
+#################################################################################
+
+
+
+#################################################################################
+# FUNCTION: CalculateStuff
+# one line description
+# input: x
+# output: x
+#################################################################################
+CalculateStuff <- function() {
+
+  return("testing......CalculateStuff")
+}
+#################################################################################
+
+
+
+#################################################################################
+# FUNCTION: SummarizeOutput
+# one line description
+# input: x
+# output: x
+#################################################################################
+SummarizeOutput <- function() {
+
+  return("testing......SummarizeOutput")
+}
+#################################################################################
+
+
+
+#################################################################################
+# FUNCTION: GraphOutput
+# one line description
+# input: x
+# output: x
+#################################################################################
+GraphOutput <- function() {
+
+  return("testing......GraphOutput")
+}
+#################################################################################
+
+
+
+
+
+
+
+
+#################################################################################
+############################### program body ####################################
+#################################################################################
+
+GetData()
+
+CalculateStuff()
+
+SummarizeOutput()
+
+GraphOutput()
+
+
+
+
+
 
 
 
