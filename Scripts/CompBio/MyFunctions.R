@@ -113,8 +113,13 @@ message("Message: Created a Graph")
 
 
 
-
-
+#################################################################################
+############################### global variables ################################
+#################################################################################
+antFile <- "antcountydata.csv" # new england ant data
+xCol <- 7 # column 7 - lat centroid of county
+yCol <- 5 # column 5 - number of ant species
+#################################################################################
 
 
 
@@ -122,11 +127,16 @@ message("Message: Created a Graph")
 ############################### program body ####################################
 #################################################################################
 
-GetData()
+temp1 <- GetData(fileName=antFile)
 
-FitRegressionModel()
+x <- temp1[,xCol]
+y <- temp1[,yCol]
 
-SummarizeOutput()
+temp2 <- FitRegressionModel(xVar = x, yVar = y)
 
-GraphOutput()
+temp3 <- SummarizeOutput(temp2)
+
+GraphOutput(xVar=x, yVar=y)
+
+#################################################################################
 

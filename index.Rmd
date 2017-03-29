@@ -19,6 +19,7 @@ output:
 * [Assignment 6  (Creating a help sheet for 13 functions)](Homework6.html)
 * Assignment 7  (added functions from last week that other people didn't get to)
 * [Assignment 8  (Created Functions for Stat. Anlaysis)](Homework8.html)
+* [Assignment 9 (created functions for repeated measures ANOVA and fake data)](Homework9.html)
 
 ### Homework Assignments:
 

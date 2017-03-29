@@ -1,0 +1,283 @@
+---
+title: "Computational Bio. - Homework 9"
+author: "P. Alexander Burnham"
+date: "March 22, 2017"
+output: html_document
+---
+
+# Creating a function to do a repeated measures ANOVA on my data set
+
+**Set working directory and Read in data**
+```{r}
+# set my working directory
+setwd("~/AndreCollaborations/QueenExperimentBurnham")
+
+# read in my data
+QueenDF <- read.table("2016QueensHam.csv", header=TRUE, sep = ",", stringsAsFactors = FALSE) 
+```
+
+
+
+## function for a repeated measures ANOVA:
+```{r}
+###########################################################################
+# function name: RepANOVA
+# description:conducts a repeated measures ANOVA on a data set and plots 
+# parameters: 
+# data = data frame, 
+# column = name of continuous variable column in quotations
+###########################################################################
+
+RepANOVA <- function(data, column){
+  
+  data$x <- data[,column]
+
+  # repeated measures on continuous variable
+  aov.out <- aov(x~Origin * Time + Error(FieldID), data=data)
+  
+  #PLOT:
+  library(plyr)
+
+  sum <- ddply(data, c("Origin", "Time"), summarise, 
+                     n = length(x),
+                     mean = mean(x, na.rm = TRUE),
+                     sd = sd(x, na.rm = TRUE),
+                     se = sd / sqrt(n))
+sum <- sum[complete.cases(sum),]
+
+# split data frame by origin  
+sumsplit <- split(sum, sum$Origin)
+
+# create matrix of values and vector of time
+Times <- c(1:length(sumsplit$Local$mean))
+Local <- sumsplit$Local$mean
+California <- sumsplit$California$mean
+mat <- as.matrix(cbind(Local, California))
+
+# plot matrix
+matplot(x=Times, y=mat,
+                type="l",
+        xlab="Time", 
+        ylab=as.character(column), 
+        lwd=2,
+        lty=1,
+        font.lab=2,
+        bty="l", 
+        col=2:5)
+
+grid(col="gray")
+
+# create legend for plot
+legend(x=1,y=max(Local),
+       c("Local",
+         "California"),
+       pch=19,
+       col=2:5,
+       bty="n",
+       bg="white")
+
+# return matrix and stats for ANOVA
+return(list(mat, aov.out, summary(aov.out)))
+}
+
+
+
+###########################################################################
+# END OF FUNCITON
+###########################################################################
+
+# testing function on 4 variables in my data set:
+RepANOVA(data=QueenDF, column="Brood")
+
+RepANOVA(data=QueenDF, column="Mass")
+
+RepANOVA(data=QueenDF, column="Varroa")
+
+RepANOVA(data=QueenDF, column="Nosema")
+
+```
+
+## Picking one variable (Brood) to simulate data for:
+
+```{r}
+# create DF with factor variables and only Brood 
+PracDF <- QueenDF[,c("Brood", "FieldID", "Yard", "Origin", "Time")]
+
+# subset by factor
+Cal <- subset(PracDF, Origin=="California")
+Loc <- subset(PracDF, Origin=="Local")
+
+# Split by Time
+calSplit <- split(Cal, Cal$Time)
+
+locSplit <- split(Loc, Loc$Time)
+
+# need 10 different distributions (for each time point for each group) 
+
+# (seeing what actual data look like) 
+
+# T1
+hist(calSplit$"1"$Brood, breaks = c(2:5))
+hist(locSplit$"1"$Brood, breaks = c(2:5))
+
+# T2
+hist(calSplit$"2"$Brood)
+hist(locSplit$"2"$Brood)
+
+# T3
+hist(calSplit$"3"$Brood)
+hist(locSplit$"3"$Brood)
+
+# T4
+hist(calSplit$"4"$Brood)
+hist(locSplit$"4"$Brood)
+
+# T5
+hist(calSplit$"5"$Brood)
+hist(locSplit$"5"$Brood)
+
+
+# summary stats for distributions that are approximatly normal (mean followd by sd)
+
+# T2
+list(mean(calSplit$"2"$Brood, na.rm=TRUE), sd(calSplit$"2"$Brood, na.rm = TRUE))
+list(mean(locSplit$"2"$Brood, na.rm=TRUE), sd(locSplit$"2"$Brood, na.rm = TRUE))
+
+# T3
+list(mean(calSplit$"3"$Brood, na.rm=TRUE), sd(calSplit$"3"$Brood, na.rm = TRUE))
+list(mean(locSplit$"3"$Brood, na.rm=TRUE), sd(locSplit$"3"$Brood, na.rm = TRUE))
+
+# T4
+list(mean(calSplit$"4"$Brood, na.rm=TRUE), sd(calSplit$"4"$Brood, na.rm = TRUE))
+list(mean(locSplit$"4"$Brood, na.rm=TRUE), sd(locSplit$"4"$Brood, na.rm = TRUE))
+
+# T5
+list(mean(calSplit$"5"$Brood, na.rm=TRUE), sd(calSplit$"5"$Brood, na.rm = TRUE))
+list(mean(locSplit$"5"$Brood, na.rm=TRUE), sd(locSplit$"5"$Brood, na.rm = TRUE))
+
+
+```
+
+## creating a function that generates simmaler data
+```{r}
+#######################################################################################
+# function name: multiDist
+# description: creates data set based on brood data with multiple calls to uniform and
+# the normal distribution for differnt time poitns (diff parameters)
+# parameters: 
+# n = sample size for each each group (local and california) (default=20 same as my data)
+#######################################################################################
+
+multiDist <- function(n=20){
+
+# creating uniform dist for time 1 for each groups
+T1cal <- runif(n=n,min=4,max=4)
+T1loc <- runif(n=n,min=4,max=4)
+
+#-----------------------------------------------------------
+# creating normal ditributions for times 2 - 5 for each group
+T2cal <- rnorm(n=n, mean = 4, sd = 1.04)
+T2loc <- rnorm(n=n, mean = 4.65, sd = 0.88)
+
+T3cal <- rnorm(n=n, mean = 3.375, sd = 1.89)
+T3loc <- rnorm(n=n, mean = 2.84, sd = 1.1)
+
+T4cal <- rnorm(n=n, mean = 3.4, sd = 1.9)
+T4loc <- rnorm(n=n, mean = 5.2, sd = 1.5)
+
+T5cal <- rnorm(n=n, mean = 4.6, sd = 1.42)
+T5loc <- rnorm(n=n, mean = 6, sd = 1.46)
+#-----------------------------------------------------------
+
+# prepare vectors of necessary data for RepANOVA()
+Time <- as.factor(c(rep(1, n * 2),rep(2, n * 2),rep(3, n * 2),rep(4, n * 2),rep(5, n * 2)))
+Brood <- c(T1cal, T1loc, T2cal, T2loc, T3cal, T3loc, T4cal, T4loc, T5cal, T5loc)
+Origin <- rep(c(rep("California", n), rep("Local", n)),5)
+FieldID <- as.factor(rep(c(1:(2*n)),5))
+
+# create data frame
+DF <- data.frame(FieldID, Time, Brood, Origin)
+
+return(DF)
+
+}
+
+###########################################################################
+# END OF FUNCITON
+###########################################################################
+
+```
+
+##Testing fake data with my repeated measures anova function
+```{r}
+# actual data
+RepANOVA(data=QueenDF, column="Brood")
+
+# fake data with my sample size (n=20)
+RepANOVA(data=multiDist(n=20), column="Brood")
+
+# fake data with smaller sample size (n=5)
+RepANOVA(data=multiDist(n=5), column="Brood")
+
+```
+
+## Random Data Bling
+```{r}
+#######################################################################################
+# function name: RanDatBling
+# description: creates data set based on brood data with multiple calls to uniform and
+# the normal distribution for differnt time poitns (diff parameters) that is ideal!!!!
+# parameters: 
+# n = sample size for each each group (local and california) (default=20 same as my data)
+#######################################################################################
+
+RanDatBling <- function(n=20){
+
+# creating uniform dist for time 1 for each groups
+T1cal <- runif(n=n,min=4,max=4)
+T1loc <- runif(n=n,min=4,max=4)
+
+#-----------------------------------------------------------
+# creating normal ditributions for times 2 - 5 for each group
+T2cal <- rnorm(n=n, mean = 4, sd = 1.04)
+T2loc <- rnorm(n=n, mean = 5, sd = 0.88)
+
+T3cal <- rnorm(n=n, mean = 3, sd = 1.1)
+T3loc <- rnorm(n=n, mean = 6, sd = 1.1)
+
+T4cal <- rnorm(n=n, mean = 2, sd = 1.9)
+T4loc <- rnorm(n=n, mean = 7, sd = 1.5)
+
+T5cal <- rnorm(n=n, mean = 1, sd = 1.42)
+T5loc <- rnorm(n=n, mean = 8, sd = 1.46)
+#-----------------------------------------------------------
+
+# prepare vectors of necessary data for RepANOVA()
+Time <- as.factor(c(rep(1, n * 2),rep(2, n * 2),rep(3, n * 2),rep(4, n * 2),rep(5, n * 2)))
+Brood <- c(T1cal, T1loc, T2cal, T2loc, T3cal, T3loc, T4cal, T4loc, T5cal, T5loc)
+Origin <- rep(c(rep("California", n), rep("Local", n)),5)
+FieldID <- as.factor(rep(c(1:(2*n)),5))
+
+# create data frame
+DF <- data.frame(FieldID, Time, Brood, Origin)
+
+return(DF)
+
+}
+
+###########################################################################
+# END OF FUNCITON
+###########################################################################
+```
+
+## testing random data bling
+
+```{r}
+# fake data with my sample size (n=20)
+RepANOVA(data=RanDatBling(n=20), column="Brood")
+```
+
+
+
+
+
