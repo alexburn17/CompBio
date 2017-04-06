@@ -1,0 +1,88 @@
+---
+title: "Homework 10 - Comp Bio"
+author: "P. Alexander Burnham"
+date: "April 5, 2017"
+output: html_document
+---
+
+## 
+1 Using a for or while loop, write a function to calculate the number of zeroes in a numeric vector.
+```{r}
+
+vec <- round(runif(10))
+z <- 0
+for (i in seq_along(vec)) {
+  if(vec[i] == 0)
+  z <- z + 1
+}
+print(z)
+
+```
+
+## 
+2 Use subsetting instead of a loop to rewrite the function as a single line of code.
+
+```{r}
+
+length(vec[vec==0])
+
+```
+
+
+## 3 
+Write a function that takes as input a numeric vector, and returns as output the maximum difference between all possible pairs of elements. Be careful to ensure that your function works properly with both negative and positive numbers. For your first version of the function, create a vector that stores all possible pairwise differences and then extracts the maximum value from that list.
+
+```{r}
+
+vec <- round(runif(10),2)
+#####################################################################################
+func1 <- function(myvec=vec){
+  
+  mat <- matrix(numeric(length(myvec)^2), nrow=length(myvec))
+
+for (i in seq_along(myvec)){
+  for (j in seq_along(myvec)){
+
+  mat[i,j] <- myvec[i]-myvec[j]
+
+  }
+} 
+  z <- c(mat)
+  return(list(max(abs(z)),mat))
+}
+####################################################################################
+func1()
+
+```
+
+## 4 
+Now modify the output of (3) to yield a list with 3 elements. The first list item is the pair of vector values that are the maximum distance apart, the second list item is the pair of numbers representing the position of these elements in the vector, and the third list item is the maximum distance calculated from this pair.
+
+```{r}
+
+#####################################################################################
+func2 <- function(myvec=vec){
+  
+  mat <- matrix(numeric(length(myvec)^2), nrow=length(myvec), dimnames = list(myvec,myvec))
+
+for (i in seq_along(myvec)){
+  for (j in seq_along(myvec)){
+
+  mat[i,j] <- myvec[i]-myvec[j]
+
+  }
+} 
+   z <- c(mat)
+   x <- which(mat==max(abs(mat)), arr.ind=TRUE)
+   w<-colnames(mat)[x[1,1]]
+   t<-rownames(mat)[x[1,2]]
+   h<-mat[x[1,1]]
+   k<-mat[x[1,2]]
+ 
+  return(list(c(w,t), x ,max(abs(z))))
+}
+#####################################################################################
+func2()
+
+```
+
