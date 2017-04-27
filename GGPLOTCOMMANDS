@@ -17,3 +17,5 @@ fill=FlowerType
 + theme_minimal(base_size = 17)
 
 + ggtitle("Boxplot of mean ozone by month")
+
++ annotate("segment", x = .5, xend = 2.5, y = 2, yend = 2) +
