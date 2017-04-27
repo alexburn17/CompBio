@@ -237,7 +237,23 @@ Andre Burnham, Fiona McLaughlin, **P. Alexander Burnham** & Herman Lehman
 
 ## Pictures of the Yards
 
+ \begin{picture}(200,200)
+ \put(-22,0){\includegraphics[height=6cm]
+ {/Users/phillipburnham/ComputationalBiology/CompBio/Presentation/Pictures/Picture8.png}}
+ \put(1,1){\begin{minipage}[t]{1\linewidth}
+ {}
+ \end{minipage}}
+ \end{picture}
 
+
+ \begin{picture}(200,200)
+ \put(202, 206){\includegraphics[height=6cm]
+ {/Users/phillipburnham/ComputationalBiology/CompBio/Presentation/Pictures/Picture9.png}}
+ \put(1,1){\begin{minipage}[t]{1\linewidth}
+ {}
+ \end{minipage}}
+ \end{picture}
+ 
 
 ## What we sampled
 
@@ -264,11 +280,6 @@ Andre Burnham, Fiona McLaughlin, **P. Alexander Burnham** & Herman Lehman
 * Local queens will be better foragers   
 
 * Local queens (colonies) will have lower pathogen loads   
-
-
-
-## Experimental Design
-
 
 
 
