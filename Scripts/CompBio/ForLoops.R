@@ -315,11 +315,32 @@ noiseSD <- c(0,5,10,20)
 n1 <- 50 # initial pop size
 reps <- 20 # number of replications for each parameter combo
 
+ranOut <- expand.grid(n1=n1, reps=reps,
+                      SerLen = SerLen,
+                      lambda=lambda,
+                      noiseSD=noiseSD)
 
+# add summary respnose varaibles:
+ranOut$meanLen <- NA
+ranOut$sdLen <- NA
 
+SurvTime <- rep(NA,reps)
 
+# begin program body
+for (i in 1:nrow(ranOut)) { # start of paremeter loop
+  for (j in 1:reps){  # start of replicate loop
+    
+    temp <- RanWalk(times=ranOut$SerLen[i],
+                    n1=ranOut$n1[i], 
+                    lambda = ranOut$lambda[i],
+                    noiseSD = ranOut$noiseSD[i])
+    SurvTime[j] <- rWalkOutput(temp)
+  } # end of replicate loop
+  ranOut$meanLen[i] <- mean(SurvTime)
+  ranOut$sdLen[i] <- sd(SurvTime)
+} # end of parameter loop
 
-
+ranOut
 
 
 

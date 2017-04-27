@@ -3,7 +3,7 @@ output:
   beamer_presentation: 
     colortheme: beaver
     fonttheme: structurebold
-    incremental: yes
+    incremental: no
     theme: boxes
 ---
 
@@ -16,12 +16,12 @@ output:
 \bigskip
 
 
-Andre Burnham, Fiona McLaughlin, P. Alexander Burnham & Herman Lehman
+Andre Burnham, Fiona McLaughlin, **P. Alexander Burnham** & Herman Lehman
 
  \begin{picture}(200,200)
  \put(1,70){\includegraphics[height=3cm]
  {/Users/phillipburnham/ComputationalBiology/CompBio/Presentation/Pictures/Picture6.png}}
- \put(-50,100){\begin{minipage}[t]{1\linewidth}
+ \put(1,1){\begin{minipage}[t]{1\linewidth}
  {}
  \end{minipage}}
  \end{picture}
@@ -30,7 +30,84 @@ Andre Burnham, Fiona McLaughlin, P. Alexander Burnham & Herman Lehman
  \begin{picture}(200,200)
  \put(155, 288){\includegraphics[height=2.2cm]
  {/Users/phillipburnham/ComputationalBiology/CompBio/Presentation/Pictures/Picture7.png}}
- \put(00,100){\begin{minipage}[t]{1\linewidth}
+ \put(1,1){\begin{minipage}[t]{1\linewidth}
+ {}
+ \end{minipage}}
+ \end{picture}
+ 
+
+## Acknowledgments
+
+**Co-Authors:**
+
+  * Andre Burnham   
+  * Fiona McLaughlin   
+  * Dr. Herman Lehman   
+
+**Thank you to:**
+
+  * The Casstevens Family   
+  * Nancy Thompson   
+  * Samantha Alger   
+
+
+ \begin{picture}(200,200)
+ \put(155,100){\includegraphics[height=3cm]
+ {/Users/phillipburnham/ComputationalBiology/CompBio/Presentation/Pictures/Picture6.png}}
+ \put(1,1){\begin{minipage}[t]{1\linewidth}
+ {}
+ \end{minipage}}
+ \end{picture}
+
+
+ \begin{picture}(200,200)
+ \put(155, 400){\includegraphics[height=2cm]
+ {/Users/phillipburnham/ComputationalBiology/CompBio/Presentation/Pictures/Picture7.png}}
+ \put(1,1){\begin{minipage}[t]{1\linewidth}
+ {}
+ \end{minipage}}
+ \end{picture}
+ 
+ 
+   \begin{picture}(200,200)
+ \put(155, 700){\includegraphics[height=1.3cm]
+ {/Users/phillipburnham/ComputationalBiology/CompBio/Presentation/Pictures/Picture14.png}}
+ \put(1,1){\begin{minipage}[t]{1\linewidth}
+ {}
+ \end{minipage}}
+ \end{picture}
+ 
+
+## The Bee Team
+
+
+ \begin{picture}(200,200)
+ \put(-25,60){\includegraphics[height=5cm]
+ {/Users/phillipburnham/ComputationalBiology/CompBio/Presentation/Pictures/Picture5.png}}
+ \put(1,1){\begin{minipage}[t]{1\linewidth}
+ {}
+ \end{minipage}}
+ \end{picture}
+
+
+ \begin{picture}(200,200)
+ \put(182, 166){\includegraphics[height=5.3cm]
+ {/Users/phillipburnham/ComputationalBiology/CompBio/Presentation/Pictures/Picture20.png}}
+ \put(1,1){\begin{minipage}[t]{1\linewidth}
+ {}
+ \end{minipage}}
+ \end{picture}
+ 
+## Honey Bees are Important
+
+* 30% of the world’s food is derived from pollination (Aizen et al., 2009)   
+* Pollinators are responsible for between $235-577 billion (Gallai et al., 2009)   
+* Honeybees are responsible for $14 Billion in the USA (Morse & Calderone, 2000)   
+
+ \begin{picture}(200,200)
+ \put(60, 70){\includegraphics[height=4.5cm]
+ {/Users/phillipburnham/ComputationalBiology/CompBio/Presentation/Pictures/Picture21.png}}
+ \put(1,1){\begin{minipage}[t]{1\linewidth}
  {}
  \end{minipage}}
  \end{picture}
@@ -38,16 +115,166 @@ Andre Burnham, Fiona McLaughlin, P. Alexander Burnham & Herman Lehman
 
 
 
+## Threats to Bees:
 
+ \begin{picture}(200,200)
+ \put(10, 1){\includegraphics[height=17cm]
+ {/Users/phillipburnham/ComputationalBiology/CompBio/Presentation/Pictures/Picture19.png}}
+ \put(1,1){\begin{minipage}[t]{1\linewidth}
+ {}
+ \end{minipage}}
+ \end{picture}
+ 
+
+## Honey Bee Pathogens
+
+**VIRUSES:**
+
+* Deformed Wing   
+* Black Queen Cell   
+* Israeli Acute Paralysis   
+
+**PARASITES:**
+
+* Nosema (ceranae/apis)   
+* Varroa Mite   
+
+
+ \begin{picture}(200,200)
+ \put(130, 90){\includegraphics[height=8cm]
+ {/Users/phillipburnham/ComputationalBiology/CompBio/Presentation/Pictures/Picture22.png}}
+ \put(1,1){\begin{minipage}[t]{1\linewidth}
+ {}
+ \end{minipage}}
+ \end{picture}
+ 
+ 
+## Troubles for Beekeepers (re-queening)
+
+ \begin{picture}(200,200)
+ \put(-25,60){\includegraphics[height=5cm]
+ {/Users/phillipburnham/ComputationalBiology/CompBio/Presentation/Pictures/Picture25.png}}
+ \put(1,1){\begin{minipage}[t]{1\linewidth}
+ {}
+ \end{minipage}}
+ \end{picture}
+
+
+ \begin{picture}(200,200)
+ \put(130, 166){\includegraphics[height=5.3cm]
+ {/Users/phillipburnham/ComputationalBiology/CompBio/Presentation/Pictures/Picture26.png}}
+ \put(1,1){\begin{minipage}[t]{1\linewidth}
+ {}
+ \end{minipage}}
+ \end{picture}
+
+## The basic premises behind this study
+
+* Imported VS Local   
+* Local Adapation   
+
+ \begin{picture}(200,200)
+ \put(-22,50){\includegraphics[height=4cm]
+ {/Users/phillipburnham/ComputationalBiology/CompBio/Presentation/Pictures/Picture3.png}}
+ \put(1,1){\begin{minipage}[t]{1\linewidth}
+ {}
+ \end{minipage}}
+ \end{picture}
+
+
+ \begin{picture}(200,200)
+ \put(176, 256){\includegraphics[height=4cm]
+ {/Users/phillipburnham/ComputationalBiology/CompBio/Presentation/Pictures/Picture4.png}}
+ \put(1,1){\begin{minipage}[t]{1\linewidth}
+ {}
+ \end{minipage}}
+ \end{picture}
+ 
+ 
+ ## The basic premises behind this study
+ 
+* Mass-Produced VS Handmade
+* Selection by the Breeder   
+
+ \begin{picture}(200,200)
+ \put(-23,50){\includegraphics[height=4cm]
+ {/Users/phillipburnham/ComputationalBiology/CompBio/Presentation/Pictures/Picture1.png}}
+ \put(1,1){\begin{minipage}[t]{1\linewidth}
+ {}
+ \end{minipage}}
+ \end{picture}
+
+
+ \begin{picture}(200,200)
+ \put(158, 256){\includegraphics[height=4cm]
+ {/Users/phillipburnham/ComputationalBiology/CompBio/Presentation/Pictures/Picture2.png}}
+ \put(1,1){\begin{minipage}[t]{1\linewidth}
+ {}
+ \end{minipage}}
+ \end{picture}
+
+
+ 
+
+ 
 
 ## The question:
 
-**“Do locally-bred queens produce healthier, more productive colonies that are better adapted to their environment than imported queens?”**
+*“Are locally-bred queens more successful than imported queens?”*
+
+## Experiemental Design
+
+* 20 colonies re-queened with Californian-bred queens   
+
+* 20 colonies re-queened local-bred (Vermont) queens   
+
+* 2 sites, 10 Local and 10 California for each   
+
+* Sampled for pathogens and productivity measures   
+
+* Sampled at different time points for 3 months  
 
 
-## Another slide with non spontanious bullet points
+## Pictures of the Yards
 
-```{r, echo=FALSE}
+
+
+## What we sampled
+
+* Growth:   
+    - Colony Mass   
+    - Brood Production    
+* Foraging:   
+    - Pollen Production   
+* Pathogens:   
+    - Varroa   
+    - Nosema spp.   
+    - RNA Viruses   
+
+
+
+
+
+
+
+## Our Predictions
+
+* Local queens (colonies) will have higher growth through the season   
+
+* Local queens will be better foragers   
+
+* Local queens (colonies) will have lower pathogen loads   
+
+
+
+## Experimental Design
+
+
+
+
+## Colony Mass (growth)
+
+```{r, echo=FALSE, warning=FALSE}
 
 
 # Set Working Directory: 
@@ -91,4 +318,213 @@ plot <- ggplot(data = MassSummary,
 
 plot
 ```
+
+
+## Frames of Brood (growth)
+
+```{r, echo=FALSE, warning=FALSE}
+#------------------------------------------------------------------------
+# BROOD
+
+# summary stats for plotting purposes:
+BroodSummary <- ddply(QueenDF, c("Origin", "BroodDay"), summarise, 
+                     n = length(Brood),
+                     mean = mean(Brood, na.rm = TRUE),
+                     sd = sd(Brood, na.rm = TRUE),
+                     se = sd / sqrt(n))
+
+#------------------------------------------------------------------------
+
+#Create plot in ggplot for brood 
+plot1 <- ggplot(data = BroodSummary, 
+               aes(x = BroodDay, 
+                   y = mean, 
+                   group = Origin)
+) + geom_point(size=3) + scale_colour_manual(values = c("black", "black")) + labs(x = "Time (days after requeening)", y = "Frames of Brood") + coord_cartesian(ylim = c(2, 7), xlim = c(-10,70)) + geom_errorbar(aes(ymin = mean - se, ymax = mean + se, width = 0.9)) + geom_line(aes(linetype=Origin), size=1) + scale_fill_brewer(palette = "Paired") + theme_classic(base_size = 17) + theme(legend.position=c(0.1, 0.85), panel.border = element_blank(), axis.line.x = element_line(colour = 'black', size=0.5, linetype='solid'),
+axis.line.y = element_line(colour = 'black', size=0.5, linetype='solid'), panel.grid.major = element_blank(), panel.grid.minor = element_blank(), axis.title.y=element_text(margin=margin(0,20,0,0))) + scale_x_continuous(breaks=pretty_breaks(n=10)) 
+
+plot1
+```
+
+
+## Pollen Collection (foraging)
+
+```{r, echo=FALSE, warning=FALSE}
+# summary stats for plotting purposes:
+VarroaSummary <- ddply(QueenDF, c("Origin", "VarroaDay"), summarise, 
+                     n = length(Varroa),
+                     mean = mean(Varroa, na.rm = TRUE),
+                     sd = sd(Varroa, na.rm = TRUE),
+                     se = sd / sqrt(n))
+
+# remove time steps with missing data:
+VarroaSummary <- VarroaSummary[-c(5,10),]
+
+#------------------------------------------------------------------------
+
+ggplot(data = VarroaSummary, 
+               aes(x = VarroaDay, 
+                   y = mean, 
+                   group = Origin)
+) + geom_point(size=3) + scale_colour_manual(values = c("black", "black")) + labs(x = "Time (days after requeening)", y = "Varroa Load (mites/300 bees)") + coord_cartesian(ylim = c(0, 12), xlim = c(10,70)) + geom_errorbar(aes(ymin = mean - se, ymax = mean + se, width = 0.9)) + geom_line(aes(linetype=Origin), size=1) + scale_fill_brewer(palette = "Paired") + theme_classic(base_size = 17) + theme(legend.position=c(.85, .85), panel.border = element_blank(), axis.line.x = element_line(colour = 'black', size=0.5, linetype='solid'),
+axis.line.y = element_line(colour = 'black', size=0.5, linetype='solid'), panel.grid.major = element_blank(), panel.grid.minor = element_blank()) + scale_x_continuous(breaks=pretty_breaks(n=5)) + labs(linetype="Queen Origin") + annotate("segment", x = 7.1, xend = 72, y = 3, yend = 3, col="red", lty = "dashed")
+
+
+```
+
+
+## Varroa Load (pathogens)
+
+```{r, echo=FALSE, warning=FALSE}
+# summary stats for plotting purposes:
+NosemaSummary <- ddply(QueenDF, c("Origin", "NosemaDay"), summarise, 
+                     n = length(Nosema),
+                     mean = mean(Nosema, na.rm = TRUE),
+                     sd = sd(Nosema, na.rm = TRUE),
+                     se = sd / sqrt(n))
+
+# remove time steps with missing data:
+NosemaSummary <- NosemaSummary[-c(4,8),]
+
+#------------------------------------------------------------------------
+
+ggplot(data = NosemaSummary, 
+               aes(x = NosemaDay, 
+                   y = mean, 
+                   group = Origin)
+) + geom_point(size=3) + scale_colour_manual(values = c("black", "black")) + labs(x = "Time (days after requeening)", y = "Nosema Load (spores/bee)") + coord_cartesian(ylim = c(0, 4300000), xlim = c(10,70)) + geom_errorbar(aes(ymin = mean - se, ymax = mean + se, width = 0.9)) + geom_line(aes(linetype=Origin), size=1) + scale_fill_brewer(palette = "Paired") + theme_classic(base_size = 17) + theme(legend.position=c(.15, .85), panel.border = element_blank(), axis.line.x = element_line(colour = 'black', size=0.5, linetype='solid'),
+axis.line.y = element_line(colour = 'black', size=0.5, linetype='solid'), panel.grid.major = element_blank(), panel.grid.minor = element_blank()) + scale_x_continuous(breaks=pretty_breaks(n=5)) + labs(linetype="Queen Origin") + annotate("segment", x = 7.1, xend = 72, y = 1000000, yend = 1000000, col="red", lty = "dashed")
+```
+
+
+## Nosema Load (pathogens)
+
+```{r, echo=FALSE, warning=FALSE}
+# summary stats for plotting purposes:
+PollenSummary <- ddply(PollenDF, c("Origin", "Week"), summarise, 
+                     n = length(Pollen),
+                     mean = mean(Pollen, na.rm = TRUE),
+                     sd = sd(Pollen, na.rm = TRUE),
+                     se = sd / sqrt(n))
+
+#------------------------------------------------------------------------
+
+ggplot(data = PollenSummary, 
+               aes(x = Week, 
+                   y = mean, 
+                   group = Origin)
+) + geom_point(size=3) + scale_colour_manual(values = c("black", "black")) + labs(x = "Time (weeks after requeening)", y = "Pollen Mass (grams)") + coord_cartesian(ylim = c(0, 40), xlim = c(1,9)) + geom_errorbar(aes(ymin = mean - se, ymax = mean + se, width = 0.1)) + geom_line(aes(linetype=Origin), size=1) + scale_fill_brewer(palette = "Paired") + theme_classic(base_size = 17) + theme(legend.position=c(.2, .85), panel.border = element_blank(), axis.line.x = element_line(colour = 'black', size=0.5, linetype='solid'),
+axis.line.y = element_line(colour = 'black', size=0.5, linetype='solid'), panel.grid.major = element_blank(), panel.grid.minor = element_blank()) + scale_x_continuous(breaks=pretty_breaks(n=9)) + labs(linetype="Queen Origin")
+
+```
+
+
+## Viral Load (pathogens)
+
+```{r, echo=FALSE, warning=FALSE}
+VirusDF$IntensityMult <- VirusDF$Band_Intensity*10^6
+VirusDFsplit <- split(VirusDF, VirusDF$Virus)
+
+# summary stats for plotting purposes:
+VirusSummary <- ddply(VirusDF, c("Origin", "Virus", "Time"), summarise, 
+                     n = length(IntensityMult),
+                     mean = mean(IntensityMult, na.rm = TRUE),
+                     sd = sd(IntensityMult, na.rm = TRUE),
+                     se = sd / sqrt(n))
+
+# split data frame by virus type:
+splitVir <- split(VirusSummary, VirusSummary$Virus)
+
+
+#------------------------------------------------------------------------
+#DWV
+
+colors <- c("white", "gray32")
+
+p1 <- ggplot(splitVir$DWV, aes(x=Time, y=mean, fill=Origin)) + 
+  geom_bar(stat="identity", col="black",  
+           position=position_dodge()) +
+  geom_errorbar(aes(ymin=mean-se, ymax=mean+se), 
+                width=.4,
+                position=position_dodge(.9)) + labs(x="DWV", y = "Viral Load (band intensity)") + theme_classic(base_size = 17) + coord_cartesian(ylim = c(0, 4000000)) + scale_fill_manual(values=colors, name="Queen Origin", labels=c("California", "Local")) + theme(legend.position=c(.5, .9), panel.border = element_blank(),
+axis.line.y = element_line(colour = 'black', size=0.5, linetype='solid'), panel.grid.major = element_blank(), panel.grid.minor = element_blank()) 
+
+#------------------------------------------------------------------------
+#BQCV
+
+p2 <- ggplot(splitVir$BQCV, aes(x=Time, y=mean, fill=Origin)) + 
+  geom_bar(stat="identity", col="black",  
+           position=position_dodge()) +
+  geom_errorbar(aes(ymin=mean-se, ymax=mean+se), 
+                width=.4,
+                position=position_dodge(.9)) + labs(x="BQCV", y = NULL) + theme_classic(base_size = 17) + coord_cartesian(ylim = c(0, 4000000)) + scale_fill_manual(values=colors, name="Queen Origin", labels=c("California", "Local")) + theme(legend.position=c(3, 3), axis.text.y=element_blank(),
+        axis.ticks.y=element_blank(),  panel.grid.major = element_blank(), panel.grid.minor = element_blank(), axis.line.y = element_blank()) +  annotate("segment", x = .5, xend = 2.5, y = 3900000, yend = 3900000) + annotate("segment", x = .5, xend = 1.4, y = 1500000, yend = 1500000) + annotate("segment", x = 1.5, xend = 2.5, y = 3600000, yend = 3600000) + annotate(geom = "text", x = 1.5, y = 4000000, label = "***",cex = 6) + annotate(geom = "text", x = 1, y = 1650000, label = "ns",cex = 5) + annotate(geom = "text", x = 2, y = 3750000, label = "ns",cex = 5)
+
+#------------------------------------------------------------------------
+#IAPV
+
+p3 <- ggplot(splitVir$IAPV, aes(x=Time, y=mean, fill=Origin)) + 
+  geom_bar(stat="identity", col="black",  
+           position=position_dodge()) +
+  geom_errorbar(aes(ymin=mean-se, ymax=mean+se), 
+                width=.4,
+                position=position_dodge(.9)) + labs(x="IAPV", y = NULL) + theme_classic(base_size = 17) + coord_cartesian(ylim = c(0, 4000000)) + scale_fill_manual(values=colors, name="Queen Origin", labels=c("California", "Local")) + theme(legend.position=c(3, 3),axis.text.y=element_blank(),
+        axis.ticks.y=element_blank(), axis.line.y = element_blank(), panel.grid.major = element_blank(), panel.grid.minor = element_blank()) + annotate("segment", x = .5, xend = 2.5, y = 3100000, yend = 3100000) + annotate("segment", x = .5, xend = 1.4, y = 2200000, yend = 2200000) + annotate("segment", x = 1.5, xend = 2.5, y = 2800000, yend = 2800000) + annotate(geom = "text", x = 1.5, y = 3250000, label = "ns",cex = 5) + annotate(geom = "text", x = 1, y = 2300000, label = "**",cex = 6) + annotate(geom = "text", x = 2, y = 2900000, label = "**",cex = 6)
+
+# merge figures into 1 side by side figure:
+grid.newpage()
+grid.draw(cbind(ggplotGrob(p1), ggplotGrob(p2), ggplotGrob(p3), size = "last"))
+```
+
+
+## In Summary 
+
+* Colony Mass 		= **Higher in Local**   
+* Amount of Brood 	= **Higher in Local**   
+* Pollen Collection 	= **No Difference**   
+* Varroa Load 		= **No Difference**   
+* Nosema Load		= **Lower in Local**   
+* RNA Viruses 		= **Mixed Results**   
+
+
+## In Summary
+
+* Overall, colonies re-queened with locally raised queens had higher growth   
+
+* Pollen collection did not seem to be involved in this growth   
+
+* Some pathogens seemed to have less of an effect on local honeybees and others had similar effects across both groups   
+
+
+## Implications
+
+* Locally-raised queens outperform mass-produced, California queens in their northern environment.   
+
+* This could be evidence for the importance of care in breeding stocks (mass produced vs handmade)   
+
+* **And/Or** This could be evidence for local (genetic) adaptation (imported vs. local)   
+
+
+
+## Thank you!
+
+ \begin{picture}(200,200)
+ \put(1, 1){\includegraphics[height=30cm]
+ {/Users/phillipburnham/ComputationalBiology/CompBio/Presentation/Pictures/Picture13.png}}
+ \put(1,1){\begin{minipage}[t]{1\linewidth}
+ {}
+ \end{minipage}}
+ \end{picture}
+
+## Questions?
+
+ \begin{picture}(200,200)
+ \put(1, 1){\includegraphics[height=30cm]
+ {/Users/phillipburnham/ComputationalBiology/CompBio/Presentation/Pictures/Picture13.png}}
+ \put(1,1){\begin{minipage}[t]{1\linewidth}
+ {}
+ \end{minipage}}
+ \end{picture}
+ 
+
 

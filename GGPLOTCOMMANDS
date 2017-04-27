@@ -1,0 +1,19 @@
+IMPORTANT GGPLOT COMMANDS:
+
++ coord_cartesian(ylim = c(0, 40))
+
++ geom_errorbar(aes(ymin=mean-se, ymax=mean+se), width=.2, position=position_dodge(.9))
+
+fill=FlowerType
+
++ labs(x="Flower Type", y = "Mass (lbs)")
+
++ geom_smooth(method = "lm", se = TRUE)
+
++ annotate("segment", x = .5, xend = 2.5, y = lower, yend = lower, col = "red", linetype = 2, size = 0.3)
+
++ annotate(geom = "text", x = 2, y = 2, label = "*",cex = 6)
+
++ theme_minimal(base_size = 17)
+
++ ggtitle("Boxplot of mean ozone by month")
