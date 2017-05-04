@@ -9,7 +9,7 @@ output:
 
 ## Introduction:
 
-**Bee local: A comparison of productivity and pathogen load in local vs. Claifornia re-queened colonies**
+**Bee local: A comparison of productivity and pathogen load in local vs. California re-queened colonies**
 
 \bigskip
 \bigskip
@@ -222,7 +222,7 @@ Andre Burnham, Fiona McLaughlin, **P. Alexander Burnham** & Herman Lehman
 
 
 
-## Experiemental Design
+## Experimental Design
 
 * 20 colonies re-queened with Californian-bred queens   
 
