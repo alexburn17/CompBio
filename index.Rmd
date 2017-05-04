@@ -28,5 +28,5 @@ output:
 
 * [LECTURE NOTES](ComBioNotes.html)    
 * [ggplot2 Presentation](ggplot2pres.html)    
-* [VT vs CA Honeybee Presentation](Presentation/VT_vs_CA_Pathogens.pdf)    
+* [VT vs CA Honeybee Presentation](Presentation/VT_vs_CA_PathogensShort.pdf)    
 
